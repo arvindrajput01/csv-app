@@ -1,0 +1,15 @@
+current directory: /home/arvind/csv-app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
+/home/arvind/.rvm/rubies/ruby-3.1.0/bin/ruby -I /home/arvind/.rvm/rubies/ruby-3.1.0/lib/ruby/3.1.0 -r ./siteconf20230606-7129-qfr5xi.rb extconf.rb
+creating Makefile
+
+current directory: /home/arvind/csv-app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /home/arvind/csv-app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/arvind/csv-app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -m 0755 bootsnap.so ./.gem.20230606-7129-jzfr8p/bootsnap

@@ -1,0 +1,16 @@
+current directory: /home/arvind/csv-app/vendor/bundle/ruby/3.1.0/gems/debug-1.8.0/ext/debug
+/home/arvind/.rvm/rubies/ruby-3.1.0/bin/ruby -I /home/arvind/.rvm/rubies/ruby-3.1.0/lib/ruby/3.1.0 -r ./siteconf20230606-7129-48jqyz.rb extconf.rb
+creating Makefile
+
+current directory: /home/arvind/csv-app/vendor/bundle/ruby/3.1.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= clean
+
+current directory: /home/arvind/csv-app/vendor/bundle/ruby/3.1.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\=
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/arvind/csv-app/vendor/bundle/ruby/3.1.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= install
+/usr/bin/install -m 0755 debug.so ./.gem.20230606-7129-ja9m6c/debug

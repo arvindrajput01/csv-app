@@ -1,0 +1,134 @@
+<h1>People</h1>
+<a href="<%= root_path %>" class="custom-link">Import</a>
+<%= form_with(url: people_path, method: :get) do |form| %>
+ <div class="search-fields">
+    <% column_names = ['first_name', 'last_name', 'gender', 'species', 'weapon', 'vehicle', 'location', 'affiliation'] %>
+    
+    <% column_names.each do |column| %>
+      <div class="search-field">
+        <%= form.text_field column.to_sym, class: "search-input", placeholder: column.titleize, name: "search[#{column}]"  %>
+      </div>
+    <% end %>
+    
+    <div class="search-button">
+      <%= form.submit 'Search', class: "search-submit"  %>
+    </div>
+  </div>
+<% end %>
+
+<% if @people.present? %>
+  <h2>Search Results</h2>
+  <table class="people-table">
+    <thead>
+      <tr>
+        <th><%= link_to 'First Name', people_path(sort: 'first_name', direction: sort_direction('first_name')) %></th>
+        <th><%= link_to 'Last Name', people_path(sort: 'last_name', direction: sort_direction('last_name')) %></th>
+        <th><%= link_to 'Gender', people_path(sort: 'gender', direction: sort_direction('gender')) %></th>
+        <th><%= link_to 'Species', people_path(sort: 'species', direction: sort_direction('species')) %></th>
+        <th><%= link_to 'Weapons', people_path(sort: 'weapon', direction: sort_direction('weapon')) %></th>
+        <th><%= link_to 'Vehicle', people_path(sort: 'vehicle', direction: sort_direction('vehicle')) %></th>
+        <th><%= link_to 'Locations', people_path(sort: 'location', direction: sort_direction('location')) %></th>
+        <th><%= link_to 'Affiliations', people_path(sort: 'affiliation', direction: sort_direction('affiliation')) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @people.each do |person| %>
+        <tr>
+          <td><%= person.first_name %></td>
+          <td><%= person.last_name %></td>
+          <td><%= person.gender %></td>
+          <td><%= person.species %></td>
+          <td><%= person.weapon %></td>
+          <td><%= person.vehicle %></td>
+          <td>
+            <% person.locations.each do |location| %>
+              <%= location.location %>
+              <!-- Display more location attributes as needed -->
+              <br>
+            <% end %>
+          </td>
+          <td>
+            <% person.affiliations.each do |aff| %>
+              <%= aff.affiliation %>
+              <!-- Display more affiliation attributes as needed -->
+              <br>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @people %>
+<% else %>
+  <p>No search results found.</p>
+<% end %>
+
+<style>
+
+  .search-fields {
+    /* Add styles for the container of search fields */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-field {
+    /* Add styles for each search field container */
+    margin-right: 10px;
+  }
+  
+
+    .search-input {
+    /* Add styles for the search input fields */
+    /* Example styles: */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .search-button {
+    /* Add styles for the search button container */
+    /* Example styles: */
+    margin-left: 10px;
+  }
+  
+  .search-submit {
+    /* Add styles for the search submit button */
+    /* Example styles: */
+    padding: 5px 10px;
+    background-color: #337ab7;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+
+
+  .people-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+
+  .people-table th, .people-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+
+  .people-table th {
+    background-color: #f2f2f2;
+  }
+  .custom-link {
+    color: #007bff;
+    text-decoration: underline;
+    transition: color 0.3s;
+    display: inline-block;
+    padding: 0;
+    border: none;
+  }
+
+  .custom-link:hover {
+    background-color: #0056b3;
+  }
+</style>

@@ -1,0 +1,32 @@
+<div class="border-container">
+  <a href="<%= people_path %>" class="custom-link">People</a>
+
+  <%= form_with(url: csv_imports_path, multipart: true) do |form| %>
+    <div class="border-container">
+      <%= form.file_field :file %>
+      <%= form.submit 'Import' %>
+    </div>
+  <% end %>
+</div>
+
+<style type="text/css">
+  .border-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+  .custom-link {
+    color: #007bff;
+    text-decoration: underline;
+    transition: color 0.3s;
+    display: inline-block;
+    padding: 0;
+    border: none;
+  }
+
+  .custom-link:hover {
+    background-color: #0056b3;
+  }
+</style>
+
